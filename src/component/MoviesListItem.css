@@ -1,82 +1,81 @@
 .movie {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows:  30px 22px 20px auto 45px;
-    grid-template-areas:
-    "image header"
-    "image moviedate"
-    "image genre"
-    "image description"
-    "image rate";
-    width: 450px;
-    height: 280px;
-    border: 1px solid white;
-    box-shadow: 0 4px 12px 0 #00000026;
-    overflow: hidden;
-    column-gap: 20px;
-    row-gap: 10px;
-
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 30px 22px 20px auto 45px;
+  grid-template-areas:
+    'image header'
+    'image moviedate'
+    'image genre'
+    'image description'
+    'image rate';
+  width: 450px;
+  height: 280px;
+  border: 1px solid white;
+  box-shadow: 0 4px 12px 0 #00000026;
+  overflow: hidden;
+  column-gap: 20px;
+  row-gap: 10px;
 }
 
 .movie__title {
-    margin: 0;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    vertical-align: middle;
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  vertical-align: middle;
 }
 
 .movie__description {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    grid-area: description;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  grid-area: description;
 }
 
 .movie__header {
-    padding-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-height: 30px;
-    grid-area: header;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 30px;
+  grid-area: header;
 }
 
 .movie__rate {
-    margin-top: auto;
-    padding-bottom: 20px;
-    grid-area: rate;
+  margin-top: auto;
+  padding-bottom: 20px;
+  grid-area: rate;
 }
 
 .movie__date {
-    grid-area: moviedate;
+  grid-area: moviedate;
 }
 
 .movie__image {
-    width: 183px;
-    min-height: 281px;
-    grid-area: image;
+  width: 183px;
+  min-height: 281px;
+  grid-area: image;
 }
 
 @media (max-width: 768px) {
-    .movie {
-        grid-template-areas:
-      "image header"
-      "image moviedate"
-       "image genre"
-      "description description"
-       "rate rate";
-        width: 387px;
-        height: 245px;
-        column-gap: 13px;
-        row-gap: 10px;
-        padding: 10px;
-    }
-    .movie__image {
-        width: 60px;
-        min-height: 91px;
-    }
-    .movie__rate {
-        margin-left: auto;
-    }
+  .movie {
+    grid-template-areas:
+      'image header'
+      'image moviedate'
+      'image genre'
+      'description description'
+      'rate rate';
+    width: 387px;
+    height: 245px;
+    column-gap: 13px;
+    row-gap: 10px;
+    padding: 10px;
+  }
+  .movie__image {
+    width: 60px;
+    min-height: 91px;
+  }
+  .movie__rate {
+    margin-left: auto;
+  }
 }

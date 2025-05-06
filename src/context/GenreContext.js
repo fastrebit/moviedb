@@ -1,5 +1,5 @@
-import { createContext } from "react";
+import { createContext } from 'react'
 
-const GenreContext = createContext({});
+const GenreContext = createContext({})
 
-export default GenreContext;
+export default GenreContext
