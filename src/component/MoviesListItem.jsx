@@ -27,7 +27,7 @@ const MoviesListItem = ({ title, image, date, overview, genre, id, rating, sessi
       <img
         alt={title}
         className={'movie__image'}
-        src={image ? 'https://image.tmdb.org/t/p/original' + image : '../../public/nullPhoto.jpg'}
+        src={image ? 'https://image.tmdb.org/t/p/original' + image : '/nullPhoto.jpg'}
       />
       <div className="movie__header">
         <h3 className={'movie__title'}>{description(title, 15)}</h3>
