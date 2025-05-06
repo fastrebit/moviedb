@@ -2,6 +2,7 @@ import React from 'react'
 import './MoviesListItem.css'
 import Genre from './Genre.jsx'
 import description from '../utils/utils.js'
+
 import { Rate } from 'antd'
 import MyRating from './UI/MyRating.jsx'
 import { addRating } from '../api/api.js'
@@ -26,7 +27,7 @@ const MoviesListItem = ({ title, image, date, overview, genre, id, rating, sessi
       <img
         alt={title}
         className={'movie__image'}
-        src={image ? 'https://image.tmdb.org/t/p/original' + image : '../src/img/nullPhoto.jpg'}
+        src={image ? 'https://image.tmdb.org/t/p/original' + image : '../../public/nullPhoto.jpg'}
       />
       <div className="movie__header">
         <h3 className={'movie__title'}>{description(title, 15)}</h3>
