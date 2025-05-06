@@ -1,0 +1,11 @@
+.MoviesList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    background: white;
+    padding: 20px 0;
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+    }
+}

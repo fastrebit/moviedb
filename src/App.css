@@ -1,0 +1,15 @@
+main{
+
+    display: grid;
+    place-items: center;
+}
+.container{
+    background: white;
+    padding: 20px;
+}
+
+.ant-tabs-nav::before {
+    width: 150px;
+    margin: 0 auto;
+
+}
