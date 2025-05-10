@@ -2,7 +2,7 @@ import React from 'react'
 import MoviesListItem from './MoviesListItem.jsx'
 import './MoviesList.css'
 
-const MoviesList = ({ movies, session }) => {
+const MoviesList = ({ movies, session, rate, addRate }) => {
   return (
     <ul className="MoviesList">
       {movies.map((item) => {
@@ -17,7 +17,9 @@ const MoviesList = ({ movies, session }) => {
               overview={item['overview']}
               genre={item['genre_ids']}
               session={session}
-              defaultValue={item['rating']}
+              defaultRaring={item['rating']}
+              rate={rate}
+              addRate={addRate}
             />
           </li>
         )

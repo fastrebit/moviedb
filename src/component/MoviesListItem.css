@@ -1,6 +1,6 @@
 .movie {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 183px 1fr;
   grid-template-rows: 30px 22px 20px auto 45px;
   grid-template-areas:
     'image header'
@@ -52,9 +52,11 @@
 }
 
 .movie__image {
-  width: 183px;
-  min-height: 281px;
   grid-area: image;
+  width: 183px;
+  height: 281px;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 768px) {
@@ -72,8 +74,11 @@
     padding: 10px;
   }
   .movie__image {
+    grid-area: image;
     width: 60px;
-    min-height: 91px;
+    height: 91px;
+    object-fit: cover;
+    object-position: center;
   }
   .movie__rate {
     margin-left: auto;

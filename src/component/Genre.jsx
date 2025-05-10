@@ -5,7 +5,7 @@ import { Tag } from 'antd'
 
 const Genre = ({ genre }) => {
   const genreContext = useContext(GenreContext)
-  const filteredGenres = genreContext.filter((elem) => genre.includes(elem.id))
+  const filteredGenres = Array.isArray(genreContext) ? genreContext.filter((elem) => genre.includes(elem.id)) : []
 
   return (
     <div>

@@ -8,16 +8,31 @@ import MyRating from './UI/MyRating.jsx'
 import { addRating } from '../api/api.js'
 import { format } from 'date-fns'
 
-const MoviesListItem = ({ title, image, date, overview, genre, id, rating, session, defaultValue = 0 }) => {
-  let formatDate = ''
-  if (!!date) {
-    formatDate = format(new Date(date), 'MMMM dd, yyyy')
-  } else {
-    formatDate = 'Unknown Date'
-  }
-  async function handleRateChange(value) {
+const MoviesListItem = ({
+  title,
+  image,
+  date,
+  overview,
+  genre,
+  id,
+  rating,
+  session,
+  defaultRaring = 0,
+  addRate,
+  rate,
+}) => {
+
+    let formatDate
+    if (!!date) {
+        formatDate = format(new Date(date), 'MMMM dd, yyyy')
+    } else {
+        formatDate = 'Unknown Date'
+    }
+
+    async function handleRateChange(value) {
+    addRate(id, value)
     try {
-      const result = await addRating(id, session, value)
+        await addRating(id, session, value)
     } catch (err) {
       console.error('Ошибка при добавлении рейтинга', err)
     }
@@ -37,10 +52,10 @@ const MoviesListItem = ({ title, image, date, overview, genre, id, rating, sessi
       <Genre className={'movie__genre'} genre={genre} />
       <span className={'movie__description'}>{description(overview, 210)}</span>
       <Rate
-        className={'movie__rate'}
+        className="movie__rate"
         allowHalf
         count={10}
-        defaultValue={defaultValue}
+        value={(rate && rate[id]) ?? defaultRaring}
         onChange={handleRateChange}
         style={{ fontSize: '16px' }}
       />

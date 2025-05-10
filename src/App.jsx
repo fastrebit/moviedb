@@ -19,9 +19,12 @@ function App() {
   const [ratedMovies, setRatedMovies] = React.useState([])
   const [activeTab, setActiveTab] = React.useState('1')
   const [genres, setGenres] = React.useState({})
-
+  const [rate, setRate] = React.useState({})
   const debouncedSetSearch = debounce(setSearch, 500)
 
+  function addRate(id, values) {
+    setRate((prevState) => ({ ...prevState, [id]: values }))
+  }
   useEffect(() => {
     if (!navigator.onLine) {
       setErrors({ status: true, message: 'Нет подключения к интернету' })
@@ -48,7 +51,6 @@ function App() {
           setLoading(true)
           const data = await ratedMovie(session, ratedPage)
           setRatedMovies(data)
-          console.log(data)
         } catch (error) {
           setErrors({ status: true, message: error.message })
         } finally {
@@ -94,7 +96,7 @@ function App() {
             {errors.status ? (
               <Alert type="error" message="error" description={errors.message || 'Ошибка отправки запроса'} />
             ) : movies['total_results'] > 0 ? (
-              <MoviesList movies={movies.results} session={session} />
+              <MoviesList movies={movies.results} session={session} rate={rate} addRate={addRate} />
             ) : (
               <span>Нет результатов</span>
             )}
@@ -112,7 +114,7 @@ function App() {
             {errors.status ? (
               <Alert type="error" message="error" description={errors.message || 'Ошибка отправки запроса'} />
             ) : ratedMovies['total_results'] > 0 ? (
-              <MoviesList movies={ratedMovies.results} session={session} />
+              <MoviesList movies={ratedMovies.results} session={session} rate={rate} addRate={addRate} />
             ) : (
               <span>Нет результатов</span>
             )}
