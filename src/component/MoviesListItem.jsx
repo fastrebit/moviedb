@@ -21,18 +21,17 @@ const MoviesListItem = ({
   addRate,
   rate,
 }) => {
+  let formatDate
+  if (!!date) {
+    formatDate = format(new Date(date), 'MMMM dd, yyyy')
+  } else {
+    formatDate = 'Unknown Date'
+  }
 
-    let formatDate
-    if (!!date) {
-        formatDate = format(new Date(date), 'MMMM dd, yyyy')
-    } else {
-        formatDate = 'Unknown Date'
-    }
-
-    async function handleRateChange(value) {
+  async function handleRateChange(value) {
     addRate(id, value)
     try {
-        await addRating(id, session, value)
+      await addRating(id, session, value)
     } catch (err) {
       console.error('Ошибка при добавлении рейтинга', err)
     }
